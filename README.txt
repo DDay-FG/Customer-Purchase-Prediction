@@ -374,3 +374,6 @@ or contact the team members.
 ================================================================================
 End of Documentation - FINAN 6520-090 Final Project
 ================================================================================
+
+---
+Provenance: written and published Aug 2025 under my University of Utah student account (https://github.com/dday-source/Customer-Purchase-Prediction). Republished here with full commit history; the original remains up.
