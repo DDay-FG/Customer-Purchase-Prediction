@@ -228,7 +228,7 @@ def evaluate_model(model, X_test, y_test, output_dir, model_name="Model"):
         f.write(classification_report(y_test, y_pred))
         
         tn, fp, fn, tp = cm.ravel()
-        f.write(f"\nBusiness Metrics:\n")
+        f.write("\nBusiness Metrics:\n")
         f.write(f"True Negatives: {tn}\n")
         f.write(f"False Positives: {fp} (Cost of unnecessary marketing)\n")
         f.write(f"False Negatives: {fn} (Missed opportunities)\n")
@@ -240,7 +240,7 @@ def evaluate_model(model, X_test, y_test, output_dir, model_name="Model"):
         profit_tp = 100  # Average profit per successful conversion
         
         total_profit = (tp * profit_tp) - (fp * cost_fp) - (fn * cost_fn)
-        f.write(f"\nEstimated Profit/Loss (example values):\n")
+        f.write("\nEstimated Profit/Loss (example values):\n")
         f.write(f"Total Profit: ${total_profit:,.2f}\n")
         f.write(f"Profit per prediction: ${total_profit/len(y_test):.2f}\n")
     
@@ -460,7 +460,6 @@ print(f"All outputs will be saved to: {output_dir}/")
 
 # DATA LOADING
 from kaggle.api.kaggle_api_extended import KaggleApi
-import os
 
 try:
     # Define download path
@@ -674,17 +673,17 @@ print(f"Enhanced predictions saved to {output_file}")
 with open(os.path.join(output_dir, "project_summary_enhanced.txt"), "w") as f:
     f.write("ENHANCED CUSTOMER PURCHASE PREDICTION MODEL - EXECUTIVE SUMMARY\n")
     f.write("="*60 + "\n\n")
-    f.write(f"Project: FINAN 6520-090 Final Project\n")
+    f.write("Project: FINAN 6520-090 Final Project\n")
     f.write(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
     
     f.write("MODEL PERFORMANCE SUMMARY:\n")
     f.write("-"*40 + "\n")
-    f.write(f"Logistic Regression:\n")
+    f.write("Logistic Regression:\n")
     f.write(f"  - ROC-AUC: {roc_auc_lr:.4f}\n")
     f.write(f"  - Cross-validation AUC: {cv_scores_lr.mean():.3f}\n")
     f.write(f"  - Estimated Profit: ${profit_lr:,.2f}\n\n")
     
-    f.write(f"XGBoost:\n")
+    f.write("XGBoost:\n")
     f.write(f"  - ROC-AUC: {roc_auc_xgb:.4f}\n")
     f.write(f"  - Cross-validation AUC: {xgb_cv_auc:.3f}\n")
     f.write(f"  - Estimated Profit: ${profit_xgb:,.2f}\n\n")
@@ -700,7 +699,7 @@ with open(os.path.join(output_dir, "project_summary_enhanced.txt"), "w") as f:
     f.write(f"All results saved to: {output_dir}/\n")
 
 print(f"\n{'='*60}")
-print(f"PROJECT COMPLETED SUCCESSFULLY")
+print("PROJECT COMPLETED SUCCESSFULLY")
 print(f"All results saved to: {output_dir}/")
 print(f"{'='*60}")
 

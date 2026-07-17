@@ -30,7 +30,6 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-from sklearn.exceptions import NotFittedError
 import xgboost as xgb
 import os
 import sys
@@ -39,12 +38,11 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import our custom modules
-from WOE import data_vars, mono_bin, char_bin, validate_inputs
+from WOE import data_vars, mono_bin, char_bin
 from CustomerPurchaseBehavior import (
     create_output_directory,
     data_quality_check,
-    printOutTheCoefficients,
-    evaluate_model
+    printOutTheCoefficients
 )
 
 
@@ -350,10 +348,8 @@ def test_profit_calculation():
     the marketing department's cost structure and profit expectations.
     Accurate financial modeling is critical for executive buy-in.
     """
-    # Create realistic confusion matrix scenario
+    # Realistic confusion matrix scenario:
     # True Negatives=70, False Positives=10, False Negatives=5, True Positives=15
-    y_true = [0]*80 + [1]*20
-    y_pred = [0]*70 + [1]*10 + [0]*5 + [1]*15
     
     # Business parameters from stakeholder input
     cost_fp = 10  # Cost of marketing to non-converter
@@ -551,7 +547,7 @@ def test_woe_calculation_performance():
     Y = (X + np.random.randn(n_samples) * 0.5 > 0).astype(int)
     
     start_time = time.time()
-    result = mono_bin(Y, X)
+    mono_bin(Y, X)
     end_time = time.time()
     
     # Verify completion within performance threshold

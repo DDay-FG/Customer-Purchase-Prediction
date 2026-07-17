@@ -29,11 +29,9 @@ In our context:
 # import packages
 import pandas as pd
 import numpy as np
-from pandas import Series
 from scipy import stats
 import re
 import traceback
-import string
 import logging
 
 # Configure logging for debugging
